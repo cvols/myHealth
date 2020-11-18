@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import firebase from 'firebase';
+import { AppLoading } from 'expo';
+import * as Font from 'expo-font';
+import { Ionicons } from '@expo/vector-icons';
 
-import { Context } from './Context/Context';
-import reducer, { initialState } from './Context/reducer';
-import Router from './Router';
+import { Context } from './src/Context/Context';
+import reducer, { initialState } from './src/Context/reducer';
+import Routes from './src/Rotues/Routes';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyByUmoogR9Y_iuQG1Q4ApgcQixDPrmXIK4',
@@ -20,9 +23,23 @@ if (!firebase.apps.length) {
 }
 
 export default function App() {
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      await Font.loadAsync({
+        Roboto: require('native-base/Fonts/Roboto.ttf'),
+        Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+        ...Ionicons.font
+      });
+
+      setIsReady(true);
+    })();
+  }, []);
+
   return (
     <Context initialState={initialState} reducer={reducer}>
-      <Router />
+      {isReady ? <Routes /> : <AppLoading />}
     </Context>
   );
 }

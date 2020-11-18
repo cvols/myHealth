@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: primary,
-    fontSize: 40
+    fontSize: 60
   },
   iconContainer: {
     alignItems: 'center',
@@ -21,12 +21,13 @@ const styles = StyleSheet.create({
   },
   primaryButton: {
     borderColor: white,
-    width: '90%',
+    width: '100%',
     justifyContent: 'center',
     backgroundColor: white
   },
   buttonText: {
-    color: primary
+    color: primary,
+    fontWeight: 'bold'
   },
   buttonContainer: {
     width: '100%',
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     borderBottomColor: darkGray,
     borderBottomWidth: 1,
     flex: 2,
-    marginBottom: 6
+    marginBottom: 5
   },
   connectText: {
     flex: 2,
@@ -85,14 +86,23 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   formContainer: {
+    justifyContent: 'space-evenly',
+    width: '90%'
+  },
+  bigContainer: {
     flex: 1,
-    justifyContent: 'space-evenly'
+    justifyContent: 'center',
+    flexDirection: 'row'
   },
   socialsContainer: {
     flex: 1
   },
   passwordContainer: {
-    marginTop: -10
+    marginTop: -10,
+    marginLeft: 0
+  },
+  emailContainer: {
+    marginLeft: 0
   },
   input: {
     color: primary
@@ -101,6 +111,13 @@ const styles = StyleSheet.create({
     color: white
   },
   eyeIconRed: {
+    color: primary
+  },
+  errorMessageContainer: {
+    alignItems: 'center',
+    height: 50
+  },
+  label: {
     color: primary
   }
 });

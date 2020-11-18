@@ -11,7 +11,6 @@ export const Context = ({ initialState, reducer, children }) => (
 
 Context.propTypes = {
   initialState: PropTypes.shape({
-    login: PropTypes.func.isRequired,
     logout: PropTypes.func.isRequired,
     user: PropTypes.shape({})
   }).isRequired,

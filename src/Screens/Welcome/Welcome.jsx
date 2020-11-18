@@ -1,18 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, Button, Icon } from 'native-base';
+import * as Animatable from 'react-native-animatable';
+import { AsyncStorage } from 'react-native';
 
 import styles from './Welcome.styles';
 
 const Welcome = ({ navigation }) => {
   const handleClick = screen => {
-    navigation.navigate(screen);
+    if (screen === 'Login') {
+      return navigation.navigate('Register', { login: true });
+    }
+
+    return navigation.navigate(screen);
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.myHealthContainer}>
-        <Icon type="FontAwesome" name="heart" style={styles.text} />
+        <Animatable.View
+          animation="pulse"
+          easing="ease-out"
+          iterationCount="infinite"
+        >
+          <Icon type="FontAwesome" name="heart" style={styles.text} />
+        </Animatable.View>
         <Text style={styles.text}>
           my<Text style={[styles.text, styles.health]}>health</Text>
         </Text>

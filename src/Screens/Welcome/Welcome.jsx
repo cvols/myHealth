@@ -4,7 +4,11 @@ import { View, Text, Button, Icon } from 'native-base';
 
 import styles from './Welcome.styles';
 
-const Welcome = () => {
+const Welcome = ({ navigation }) => {
+  const handleClick = screen => {
+    navigation.navigate(screen);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.myHealthContainer}>
@@ -15,13 +19,27 @@ const Welcome = () => {
       </View>
       <View>
         <View style={styles.buttonContainer}>
-          <Button rounded bordered style={styles.secondaryButton}>
-            <Text style={styles.secondaryButtonText}>SIGN UP</Text>
+          <Button
+            rounded
+            bordered
+            style={styles.secondaryButton}
+            onPress={() => handleClick('Register')}
+          >
+            <Text style={[styles.secondaryButtonText, styles.uppercase]}>
+              Sign Up
+            </Text>
           </Button>
         </View>
         <View style={[styles.buttonContainer, styles.buttonMargin]}>
-          <Button rounded bordered style={styles.primaryButton}>
-            <Text style={styles.primaryButtonText}>LOGIN</Text>
+          <Button
+            rounded
+            bordered
+            style={styles.primaryButton}
+            onPress={() => handleClick('Login')}
+          >
+            <Text style={[styles.primaryButtonText, styles.uppercase]}>
+              Login
+            </Text>
           </Button>
         </View>
       </View>

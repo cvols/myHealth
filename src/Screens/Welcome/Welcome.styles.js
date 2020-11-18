@@ -1,31 +1,26 @@
 import { StyleSheet } from 'react-native';
 import theme from '../../../theme';
 
-const { main, secondary } = theme.palette;
+const { primary, white } = theme.palette;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    backgroundColor: main
+    backgroundColor: primary
   },
   myHealthContainer: {
     alignItems: 'center'
   },
   text: {
-    color: secondary,
+    color: white,
     fontSize: 40
-  },
-  icon: {
-    color: secondary,
-    fontSize: 60
   },
   health: {
     fontWeight: 'bold'
   },
   buttonContainer: {
-    width: '100%',
     justifyContent: 'center',
     flexDirection: 'row'
   },
@@ -33,21 +28,24 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   secondaryButton: {
-    borderColor: secondary,
-    width: '80%',
+    borderColor: white,
+    width: '90%',
     justifyContent: 'center'
   },
   secondaryButtonText: {
-    color: secondary
+    color: white
   },
   primaryButton: {
-    borderColor: secondary,
-    width: '80%',
+    borderColor: white,
+    width: '90%',
     justifyContent: 'center',
-    backgroundColor: secondary
+    backgroundColor: white
   },
   primaryButtonText: {
-    color: main
+    color: primary
+  },
+  uppercase: {
+    textTransform: 'uppercase'
   }
 });
 

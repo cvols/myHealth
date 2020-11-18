@@ -26,9 +26,9 @@ const Routes = () => {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen
           name="Register"
-          // options={{
-          // header: () => null
-          // }}
+          options={{
+            header: () => null
+          }}
           component={Register}
         />
       </Stack.Navigator>

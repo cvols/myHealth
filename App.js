@@ -3,11 +3,10 @@ import firebase from 'firebase';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import { AsyncStorage } from 'react-native';
 
 import { Context } from './src/Context/Context';
 import reducer, { initialState } from './src/Context/reducer';
-import Routes from './src/Rotues/Routes';
+import Routes from './src/Routes';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyByUmoogR9Y_iuQG1Q4ApgcQixDPrmXIK4',

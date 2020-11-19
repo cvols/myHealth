@@ -6,11 +6,10 @@ import firebase from 'firebase';
 import { useContextValue } from '../../Context/Context';
 import { TYPES } from '../../Context/types';
 
-const Login = ({ navigation }) => {
+const Home = ({ navigation }) => {
   const [{ user, logout }, dispatch] = useContextValue();
   return (
-    <View>
-      <Text>I am a login screen</Text>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Button
         title="logout"
         onPress={() => {
@@ -24,7 +23,7 @@ const Login = ({ navigation }) => {
   );
 };
 
-Login.defaultProps = {};
-Login.propTypes = {};
+Home.defaultProps = {};
+Home.propTypes = {};
 
-export default Login;
+export default Home;

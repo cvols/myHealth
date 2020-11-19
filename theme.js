@@ -5,7 +5,8 @@ const theme = {
     white: '#f2eceb',
     darkGray: '#737373',
     facebook: '#3b5998',
-    google: '#d74936'
+    google: '#d74936',
+    error: '#990000'
   }
 };
 

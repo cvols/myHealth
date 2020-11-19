@@ -6,7 +6,6 @@ const { primary, white } = theme.palette;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'space-evenly',
     backgroundColor: primary
   },
@@ -21,7 +20,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   buttonContainer: {
-    justifyContent: 'center',
     flexDirection: 'row'
   },
   buttonMargin: {
@@ -29,7 +27,7 @@ const styles = StyleSheet.create({
   },
   secondaryButton: {
     borderColor: white,
-    width: '90%',
+    width: '100%',
     justifyContent: 'center'
   },
   secondaryButtonText: {
@@ -37,7 +35,7 @@ const styles = StyleSheet.create({
   },
   primaryButton: {
     borderColor: white,
-    width: '90%',
+    width: '100%',
     justifyContent: 'center',
     backgroundColor: white
   },
@@ -46,6 +44,9 @@ const styles = StyleSheet.create({
   },
   uppercase: {
     textTransform: 'uppercase'
+  },
+  bgColor: {
+    backgroundColor: primary
   }
 });
 

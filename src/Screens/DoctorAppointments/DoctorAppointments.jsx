@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Text } from 'native-base';
+import { Button, Text } from 'native-base';
 import firebase from 'firebase';
 
 import { CenterView } from '../../Components';
 import { Card } from './Components';
 import styles from './DoctorAppointments.styles';
+import { useContextValue } from '../../Context/Context';
 
 const DoctorAppointments = () => {
+  const [{ logout }, dispatch] = useContextValue();
   const [doctorAppointments, setDoctorAppointments] = useState([]);
 
   useEffect(() => {
@@ -25,7 +27,19 @@ const DoctorAppointments = () => {
 
   return (
     <CenterView style={styles.container}>
-      <Text>Previous Doctor Appointments</Text>
+      <Text onPress={() => console.log('pressed')}>
+        Previous Doctor Appointments
+      </Text>
+      <Button
+        onPress={() => {
+          logout();
+          dispatch({
+            type: 'CLEAR_USER'
+          });
+        }}
+      >
+        <Text>logout</Text>
+      </Button>
       {doctorAppointments?.map((appointment, index) => {
         const { location, doctor, lastVisit, notes } = appointment;
 

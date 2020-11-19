@@ -6,9 +6,7 @@ const { primary, secondary, white, darkGray, facebook, google } = theme.palette;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: secondary,
-    paddingLeft: 20,
-    paddingRight: 20
+    backgroundColor: secondary
   },
   icon: {
     color: primary,
@@ -30,9 +28,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   buttonContainer: {
-    width: '100%',
-    justifyContent: 'center',
-    flexDirection: 'row'
+    width: '100%'
   },
   horizontalLine: {
     borderBottomColor: darkGray,
@@ -47,14 +43,10 @@ const styles = StyleSheet.create({
     fontSize: 10
   },
   horizontalContainer: {
-    flexDirection: 'row',
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'center'
+    width: '100%'
   },
   connectContainer: {
-    flexDirection: 'row',
-    width: '90%'
+    flexDirection: 'row'
   },
   uppercase: {
     textTransform: 'uppercase'
@@ -74,24 +66,20 @@ const styles = StyleSheet.create({
     color: white
   },
   socialButtonContainer: {
-    justifyContent: 'center',
     flexDirection: 'row',
-    width: '100%',
     marginTop: 10
   },
   socialButtons: {
     flexDirection: 'row',
-    width: '90%',
-    alignContent: 'center',
+    width: '100%',
     justifyContent: 'space-between'
   },
   formContainer: {
     justifyContent: 'space-evenly',
-    width: '90%'
+    width: '100%'
   },
   bigContainer: {
     flex: 1,
-    justifyContent: 'center',
     flexDirection: 'row'
   },
   socialsContainer: {
@@ -114,11 +102,13 @@ const styles = StyleSheet.create({
     color: primary
   },
   errorMessageContainer: {
-    alignItems: 'center',
     height: 50
   },
   label: {
     color: primary
+  },
+  bgColor: {
+    backgroundColor: secondary
   }
 });
 

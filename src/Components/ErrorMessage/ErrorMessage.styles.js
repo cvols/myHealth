@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
 import theme from '../../../theme';
 
-const { primary } = theme.palette;
+const { error } = theme.palette;
 
 const styles = StyleSheet.create({
   error: {
-    color: primary
+    color: error,
+    fontStyle: 'italic'
   }
 });
 

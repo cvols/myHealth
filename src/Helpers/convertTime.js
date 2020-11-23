@@ -1,4 +1,6 @@
 const convertTime = time => {
+  if (typeof time === 'string') return;
+
   const dateObj = new Date(time.seconds * 1000);
   const day = dateObj.getDate();
   const month = dateObj.getMonth() + 1;
@@ -6,6 +8,8 @@ const convertTime = time => {
   let hours = dateObj.getHours();
   let minutes = dateObj.getMinutes();
   let period = 'am';
+
+  // console.log('dateObj: ', dateObj.toString().substr(0, 24));
 
   if (hours > 12) {
     hours = hours - 12;
@@ -47,7 +51,7 @@ const convertTime = time => {
       break;
   }
 
-  return `${day}/${month}/${year} ${hours}:${minutes} ${period}`;
+  return `${month}/${day}/${year} ${hours}:${minutes} ${period}`;
 };
 
 export default convertTime;

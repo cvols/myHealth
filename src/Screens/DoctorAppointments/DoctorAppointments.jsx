@@ -37,12 +37,22 @@ const DoctorAppointments = () => {
       >
         <Text>logout</Text>
       </Button>
-      <Text>Your last 3 appointments</Text>
+      <Text>Your 3 most recent appointments</Text>
       {doctorAppointments
-        ?.sort((a, b) => a.lastVisit > b.lastVisit)
+        ?.sort((a, b) => a.lastVisit < b.lastVisit)
         .slice(0, 3)
         .map((appointment, index) => {
-          const { location, doctor, lastVisit, notes, type } = appointment;
+          const {
+            location,
+            doctor,
+            lastVisit,
+            notes,
+            type,
+            image,
+            nextVisit,
+            phoneNumber
+          } = appointment;
+          console.log('appointment: ', image);
 
           return (
             <Card
@@ -52,6 +62,9 @@ const DoctorAppointments = () => {
               lastVisit={lastVisit}
               notes={notes}
               type={type}
+              image={image}
+              nextVisit={nextVisit}
+              phoneNumber={phoneNumber}
             />
           );
         })}

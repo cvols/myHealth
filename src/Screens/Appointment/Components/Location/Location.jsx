@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import styles from './Location.styles';
 
-const Location = ({ location }) => {
+const Location = ({ location, customStyle }) => {
   const { longitude, latitude } = location;
   const [state, setState] = useState({
     city: null,
@@ -30,7 +30,9 @@ const Location = ({ location }) => {
   }, []);
   return (
     <View style={styles.container}>
-      <Text>{`${state.city}, ${state.state}, ${state.postcode}`}</Text>
+      <Text
+        style={customStyle}
+      >{`${state.city}, ${state.state}, ${state.postcode}`}</Text>
     </View>
   );
 };

@@ -9,21 +9,32 @@ import {
   View
 } from 'native-base';
 import { useNavigation } from '@react-navigation/native';
-
-import { convertTime } from '../../../../Helpers';
-import Location from '../Location';
-import styles from './Card.styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const Card = ({ location, doctorName, lastVisit, notes, type }) => {
+import { convertTime } from '../../../../Helpers';
+import styles from './Card.styles';
+
+const Card = ({
+  location,
+  doctorName,
+  lastVisit,
+  notes,
+  type,
+  image,
+  nextVisit,
+  phoneNumber
+}) => {
   const navigation = useNavigation();
   const handlePress = () => {
     navigation.navigate('Appointment', {
-      location,
       doctorName,
+      image,
       lastVisit,
+      location,
       notes,
-      type
+      type,
+      nextVisit,
+      phoneNumber
     });
   };
 
@@ -67,7 +78,8 @@ Card.propTypes = {
     seconds: PropTypes.number
   }),
   notes: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  image: PropTypes.string
 };
 
 export default Card;

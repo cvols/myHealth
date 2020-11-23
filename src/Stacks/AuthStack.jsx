@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Register, Welcome } from './Screens';
+import { Register, Welcome } from '../Screens';
 
 const Stack = createStackNavigator();
 

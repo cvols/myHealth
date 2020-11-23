@@ -8,7 +8,7 @@ import { TYPES } from './Context/types';
 import { ActivityIndicator } from 'react-native';
 import { CenterView } from './Components';
 import AppTabs from './AppTabs';
-import AuthStack from './AuthStack';
+import AuthStack from './Stacks/AuthStack';
 
 
 const Routes = () => {

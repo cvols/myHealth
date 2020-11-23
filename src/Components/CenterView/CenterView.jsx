@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'native-base';
 
 import styles from './CenterView.styles';
 
-const CenterView = ({ children, style }) => {
-  return <View style={[styles.center, style]}>{children}</View>;
+const CenterView = ({ children, style, noPadding }) => {
+  return (
+    <View style={[noPadding ? styles.noPadding : styles.center, style]}>
+      {children}
+    </View>
+  );
 };
 
-CenterView.defaultProps = {};
+CenterView.defaultProps = {
+  noPadding: false
+};
 CenterView.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.shape({})
+  style: PropTypes.shape({}),
+  noPadding: PropTypes.string
 };
 
 export default CenterView;

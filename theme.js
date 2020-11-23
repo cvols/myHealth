@@ -6,7 +6,7 @@ const theme = {
     darkGray: '#737373',
     facebook: '#3b5998',
     google: '#d74936',
-    error: '#990000'
+    error: '#000'
   }
 };
 

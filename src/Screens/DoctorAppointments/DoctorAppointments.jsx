@@ -26,10 +26,7 @@ const DoctorAppointments = () => {
   }, []);
 
   return (
-    <CenterView style={styles.container}>
-      <Text onPress={() => console.log('pressed')}>
-        Previous Doctor Appointments
-      </Text>
+    <CenterView style={styles.container} noPadding>
       <Button
         onPress={() => {
           logout();
@@ -40,19 +37,24 @@ const DoctorAppointments = () => {
       >
         <Text>logout</Text>
       </Button>
-      {doctorAppointments?.map((appointment, index) => {
-        const { location, doctor, lastVisit, notes } = appointment;
+      <Text>Your last 3 appointments</Text>
+      {doctorAppointments
+        ?.sort((a, b) => a.lastVisit > b.lastVisit)
+        .slice(0, 3)
+        .map((appointment, index) => {
+          const { location, doctor, lastVisit, notes, type } = appointment;
 
-        return (
-          <Card
-            key={index}
-            location={location}
-            doctorName={doctor}
-            lastVisit={lastVisit}
-            notes={notes}
-          />
-        );
-      })}
+          return (
+            <Card
+              key={index}
+              location={location}
+              doctorName={doctor}
+              lastVisit={lastVisit}
+              notes={notes}
+              type={type}
+            />
+          );
+        })}
     </CenterView>
   );
 };

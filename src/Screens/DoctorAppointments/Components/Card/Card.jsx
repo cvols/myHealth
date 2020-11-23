@@ -8,27 +8,34 @@ import {
   Text,
   View
 } from 'native-base';
+import { useNavigation } from '@react-navigation/native';
 
 import { convertTime } from '../../../../Helpers';
 import Location from '../Location';
 import styles from './Card.styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const Card = ({ location, doctorName, lastVisit, notes }) => {
+const Card = ({ location, doctorName, lastVisit, notes, type }) => {
+  const navigation = useNavigation();
   const handlePress = () => {
-    console.log('pressed');
+    navigation.navigate('Appointment', {
+      location,
+      doctorName,
+      lastVisit,
+      notes,
+      type
+    });
   };
 
   return (
     <TouchableOpacity style={styles.container} onPress={handlePress}>
       <ReactCard style={styles.card}>
         <View style={styles.dataContainer}>
-          <CardItem header>
-            <Text>Doctor: {doctorName}</Text>
+          <CardItem>
+            <Text style={styles.title}>{doctorName}</Text>
           </CardItem>
-          <CardItem style={styles.footerContainer}>
-            <Text>{convertTime(lastVisit)}</Text>
-            <Location location={location} />
+          <CardItem>
+            <Text style={styles.type}>{type}</Text>
           </CardItem>
         </View>
         <View style={styles.iconContainer}>
@@ -39,7 +46,28 @@ const Card = ({ location, doctorName, lastVisit, notes }) => {
   );
 };
 
-Card.defaultProps = {};
-Card.propTypes = {};
+Card.defaultProps = {
+  location: {
+    longitude: null,
+    latitude: null,
+    doctorName: null,
+    lastVisit: null,
+    notes: null,
+    type: null
+  }
+};
+Card.propTypes = {
+  location: PropTypes.shape({
+    longitude: PropTypes.number,
+    latitude: PropTypes.number
+  }),
+  doctorName: PropTypes.string,
+  lastVisit: PropTypes.shape({
+    nanoSeconds: PropTypes.number,
+    seconds: PropTypes.number
+  }),
+  notes: PropTypes.string,
+  type: PropTypes.string
+};
 
 export default Card;

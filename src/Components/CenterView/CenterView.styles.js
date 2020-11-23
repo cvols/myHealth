@@ -7,6 +7,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingLeft: '10%',
     paddingRight: '10%'
+  },
+  noPadding: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 

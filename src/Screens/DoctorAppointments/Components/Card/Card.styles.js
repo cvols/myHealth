@@ -5,7 +5,7 @@ const { primary } = theme.palette;
 
 const styles = StyleSheet.create({
   container: {
-    width: '90%'
+    width: '95%'
   },
   card: {
     borderLeftWidth: 10,
@@ -13,9 +13,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%'
   },
-  footerContainer: {
-    flexDirection: 'column',
-    alignItems: 'flex-start'
+  type: {
+    fontStyle: 'italic'
+  },
+  title: {
+    fontSize: 20
   },
   dataContainer: {
     flex: 9

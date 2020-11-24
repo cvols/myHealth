@@ -11,7 +11,6 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import { convertTime } from '../../../../Helpers';
 import styles from './Card.styles';
 
 const Card = ({

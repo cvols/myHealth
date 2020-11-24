@@ -69,6 +69,18 @@ const styles = StyleSheet.create({
   icon: {
     marginTop: '10%',
     marginLeft: 10
+  },
+  selectButton: {
+    backgroundColor: primary
+  },
+  selectButtonContainer: {
+    justifyContent: 'center',
+    flex: 1,
+    alignSelf: 'center'
+  },
+  dateTimePickerContainer: {
+    flex: 1,
+    marginTop: '20%'
   }
 });
 

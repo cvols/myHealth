@@ -9,7 +9,7 @@ import styles from './DoctorAppointments.styles';
 import { useContextValue } from '../../Context/Context';
 
 const DoctorAppointments = () => {
-  const [{ logout }, dispatch] = useContextValue();
+  const [{ logout, user }, dispatch] = useContextValue();
   const [doctorAppointments, setDoctorAppointments] = useState([]);
 
   useEffect(() => {
@@ -52,7 +52,6 @@ const DoctorAppointments = () => {
             nextVisit,
             phoneNumber
           } = appointment;
-          console.log('appointment: ', image);
 
           return (
             <Card

@@ -5,12 +5,12 @@ export const initialState = {
   logout: () => firebase.auth().signOut(),
   user: {
     email: null,
-    doctorAppointments: []
+    nextVisit: null
   }
 };
 
 export default (state, action) => {
-  const { SET_USER, CLEAR_USER, SET_DOCTOR_APPOINTMENTS } = TYPES;
+  const { SET_USER, CLEAR_USER, UPDATE_DOC_APPOINTMENT } = TYPES;
 
   switch (action.type) {
     case SET_USER:
@@ -24,6 +24,14 @@ export default (state, action) => {
     case CLEAR_USER:
       return {
         ...initialState
+      };
+    case UPDATE_DOC_APPOINTMENT:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          nextVisit: action.payload
+        }
       };
     default:
       return state;

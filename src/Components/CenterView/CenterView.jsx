@@ -18,7 +18,7 @@ CenterView.defaultProps = {
 CenterView.propTypes = {
   children: PropTypes.node.isRequired,
   style: PropTypes.shape({}),
-  noPadding: PropTypes.string
+  noPadding: PropTypes.boolean
 };
 
 export default CenterView;

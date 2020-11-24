@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Body,
@@ -14,10 +14,13 @@ import {
 } from 'native-base';
 import { Image, Modal } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import firebase from 'firebase';
 
 import styles from './Appointment.styles';
 import { convertTime } from '../../Helpers';
 import { Location } from './Components';
+import { useContextValue } from '../../Context/Context';
+import { TYPES } from '../../Context/types';
 
 const Appointment = ({ route }) => {
   const {
@@ -30,36 +33,46 @@ const Appointment = ({ route }) => {
     nextVisit,
     location
   } = route.params;
-  const [date, setDate] = useState(new Date());
-  const [time, setTime] = useState(new Date());
+  const [{ user }, dispatch] = useContextValue();
   const [show, setShow] = useState(false);
+  const [date, setDate] = useState(new Date());
+  const [theNextVisit, setTheNextVisit] = useState(null);
 
   const handleDateChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
-    console.log('date: ', currentDate);
-
     setDate(currentDate);
   };
 
   const handleTimeChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
-    console.log('time: ', currentDate);
-    setTime(currentDate);
+    setDate(currentDate);
   };
 
-  const showMode = currentMode => {
-    setShow(true);
+  const handleSelectDateTimeButton = () => {
+    const db = firebase.firestore();
+    db.collection('58E9mtBkSZOBTHOOQptM10tersh1')
+      .doc('QHDQgMdAofeVu3OQQ1rn')
+      .collection('doctorAppointments')
+      .doc('6SDFzWnzSgpZVj7gd0KI')
+      .update({
+        nextVisit: date
+      });
+
+    dispatch({
+      type: TYPES.UPDATE_DOC_APPOINTMENT,
+      payload: date
+    });
+
+    setShow(false);
   };
 
-  const showDatepicker = () => {
-    showMode('date');
-  };
+  useEffect(() => {
+    if (user.nextVisit) {
+      return setTheNextVisit(convertTime(user.nextVisit));
+    }
 
-  const showTimepicker = () => {
-    showMode('time');
-  };
-
-  console.log('date: ', date.toString().substr(0, 15));
+    return setTheNextVisit(convertTime(nextVisit));
+  }, [user.nextVisit]);
 
   return (
     <View style={styles.container}>
@@ -106,9 +119,7 @@ const Appointment = ({ route }) => {
             />
           </Left>
           <Body>
-            <Text style={styles.barText}>
-              Next Visit: {convertTime(nextVisit)}
-            </Text>
+            <Text style={styles.barText}>Next Visit: {theNextVisit}</Text>
           </Body>
         </ListItem>
         <ListItem icon style={styles.bar}>
@@ -129,7 +140,7 @@ const Appointment = ({ route }) => {
         </ListItem>
       </View>
       <View style={styles.buttonContainer}>
-        <Button iconLeft style={styles.button} onPress={showDatepicker}>
+        <Button iconLeft style={styles.button} onPress={() => setShow(true)}>
           <Icon
             type="FontAwesome"
             name="calendar-plus-o"
@@ -148,22 +159,32 @@ const Appointment = ({ route }) => {
           />
           {show && (
             <View style={styles.centeredView}>
-              <DateTimePicker
-                testId="dateTimePicker"
-                value={date}
-                mode={'date'}
-                is24Hour
-                display="default"
-                onChange={handleDateChange}
-              />
-              <DateTimePicker
-                testId="dateTimePicker"
-                value={time}
-                mode={'time'}
-                is24Hour
-                display="default"
-                onChange={handleTimeChange}
-              />
+              <View style={styles.dateTimePickerContainer}>
+                <DateTimePicker
+                  testId="dateTimePicker"
+                  value={date}
+                  mode={'date'}
+                  is24Hour
+                  display="default"
+                  onChange={handleDateChange}
+                />
+                <DateTimePicker
+                  testId="dateTimePicker"
+                  value={date}
+                  mode={'time'}
+                  is24Hour
+                  display="default"
+                  onChange={handleTimeChange}
+                />
+              </View>
+              <View style={styles.selectButtonContainer}>
+                <Button
+                  style={styles.selectButton}
+                  onPress={handleSelectDateTimeButton}
+                >
+                  <Text>Select Date and Time</Text>
+                </Button>
+              </View>
             </View>
           )}
         </Modal>

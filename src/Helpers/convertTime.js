@@ -1,7 +1,13 @@
 const convertTime = time => {
   if (typeof time === 'string') return;
 
-  const dateObj = new Date(time.seconds * 1000);
+  let dateObj;
+  if (time.seconds) {
+    dateObj = new Date(time.seconds * 1000);
+  } else {
+    dateObj = time;
+  }
+
   const day = dateObj.getDate();
   const month = dateObj.getMonth() + 1;
   const year = dateObj.getFullYear();
@@ -9,10 +15,16 @@ const convertTime = time => {
   let minutes = dateObj.getMinutes();
   let period = 'am';
 
-  // console.log('dateObj: ', dateObj.toString().substr(0, 24));
-
   if (hours > 12) {
     hours = hours - 12;
+    period = 'pm';
+  }
+
+  if (hours === 0) {
+    hours = 12;
+  }
+
+  if (hours === 12) {
     period = 'pm';
   }
 

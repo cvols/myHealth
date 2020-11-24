@@ -1,17 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Body,
-  Button,
-  DatePicker,
-  Icon,
-  Item,
-  Left,
-  ListItem,
-  Picker,
-  Text,
-  View
-} from 'native-base';
+import { Body, Button, Icon, Left, ListItem, Text, View } from 'native-base';
 import { Image, Modal } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import firebase from 'firebase';

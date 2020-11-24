@@ -6,7 +6,9 @@ import styles from './CenterView.styles';
 
 const CenterView = ({ children, style, noPadding }) => {
   return (
-    <View style={[noPadding ? styles.noPadding : styles.center, style]}>
+    <View
+      style={noPadding ? [styles.noPadding, style] : [styles.center, style]}
+    >
       {children}
     </View>
   );
@@ -18,7 +20,7 @@ CenterView.defaultProps = {
 CenterView.propTypes = {
   children: PropTypes.node.isRequired,
   style: PropTypes.shape({}),
-  noPadding: PropTypes.boolean
+  noPadding: PropTypes.bool
 };
 
 export default CenterView;

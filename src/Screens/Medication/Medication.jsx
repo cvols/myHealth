@@ -31,7 +31,7 @@ const Medication = ({ route }) => {
     }
     const total = dosage * pricePerDosage * number;
 
-    return <Text style={styles.dollar}>${total}</Text>;
+    return <Text style={styles.dollar}>${total.toFixed(2)}</Text>;
   };
 
   return (
@@ -70,14 +70,14 @@ const Medication = ({ route }) => {
 Medication.defaultProps = {};
 Medication.propTypes = {
   dosage: PropTypes.number.isRequired,
-  frequency: PropTypes.string.isRequired,
+  frequency: PropTypes.oneOf(['daily', 'weekly', 'monthly']).isRequired,
   name: PropTypes.string.isRequired,
   pricePerDosage: PropTypes.number.isRequired,
   startDate: PropTypes.shape({
     nanoseconds: PropTypes.number.isRequired,
     seconds: PropTypes.number.isRequired
   }).isRequired,
-  strength: PropTypes.string.isRequired
+  strength: PropTypes.oneOf(['mild', 'medium', 'high']).isRequired
 };
 
 export default Medication;

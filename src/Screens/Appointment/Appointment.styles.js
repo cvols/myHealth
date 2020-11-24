@@ -27,6 +27,10 @@ const styles = StyleSheet.create({
   text: {
     color: white
   },
+  icon: {
+    color: primary,
+    width: 30
+  },
   barText: {
     color: primary
   },
@@ -66,7 +70,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5
   },
-  icon: {
+  closeIcon: {
     marginTop: '10%',
     marginLeft: 10
   },

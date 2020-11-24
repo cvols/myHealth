@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Text } from 'native-base';
+import { ScrollView } from 'react-native-gesture-handler';
 import firebase from 'firebase';
 
-import { CenterView } from '../../Components';
 import { Card } from './Components';
 import styles from './DoctorAppointments.styles';
-import { useContextValue } from '../../Context/Context';
 
 const DoctorAppointments = () => {
-  const [{ logout }, dispatch] = useContextValue();
   const [doctorAppointments, setDoctorAppointments] = useState([]);
 
   useEffect(() => {
@@ -26,22 +23,7 @@ const DoctorAppointments = () => {
   }, []);
 
   return (
-    <CenterView style={styles.container} noPadding>
-      <Button
-        onPress={() => {
-          try {
-            logout();
-            dispatch({
-              type: 'CLEAR_USER'
-            });
-          } catch (err) {
-            console.error(err);
-          }
-        }}
-      >
-        <Text>logout</Text>
-      </Button>
-      <Text>Your 3 most recent appointments</Text>
+    <ScrollView contentContainerStyle={styles.container} noPadding>
       {doctorAppointments
         ?.sort((a, b) => a.lastVisit < b.lastVisit)
         .slice(0, 3)
@@ -71,7 +53,7 @@ const DoctorAppointments = () => {
             />
           );
         })}
-    </CenterView>
+    </ScrollView>
   );
 };
 

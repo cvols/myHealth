@@ -6,11 +6,17 @@ export const initialState = {
   user: {
     email: null,
     nextVisit: null
-  }
+  },
+  medication: null
 };
 
 export default (state, action) => {
-  const { SET_USER, CLEAR_USER, UPDATE_DOC_APPOINTMENT } = TYPES;
+  const {
+    SET_USER,
+    CLEAR_USER,
+    UPDATE_DOC_APPOINTMENT,
+    SET_MEDICATION
+  } = TYPES;
 
   switch (action.type) {
     case SET_USER:
@@ -32,6 +38,11 @@ export default (state, action) => {
           ...state.user,
           nextVisit: action.payload
         }
+      };
+    case SET_MEDICATION:
+      return {
+        ...state,
+        medication: action.payload
       };
     default:
       return state;

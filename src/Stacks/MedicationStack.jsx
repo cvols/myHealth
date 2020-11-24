@@ -8,18 +8,24 @@ import { useContextValue } from '../Context/Context';
 const Stack = createStackNavigator();
 
 const MedicationStack = () => {
-  const [{ user }] = useContextValue();
+  const [{ medication }] = useContextValue();
 
   return (
     <Stack.Navigator initialRouteName="Medications">
       <Stack.Screen
         options={{
-          title: `Medications`
+          title: 'Medications'
         }}
         name="Medications"
         component={Medications}
       />
-      <Stack.Screen name="Medication" component={Medication} />
+      <Stack.Screen
+        options={{
+          title: medication
+        }}
+        name="Medication"
+        component={Medication}
+      />
     </Stack.Navigator>
   );
 };

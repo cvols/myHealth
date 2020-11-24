@@ -5,6 +5,21 @@ import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import styles from './MobileCard.styles';
+import { useContextValue } from '../../../../Context/Context';
+import { TYPES } from '../../../../Context/types';
+
+const icons = [
+  'book-medical',
+  'briefcase-medical',
+  'clinic-medical',
+  'comment-medical',
+  'file-medical-alt',
+  'file-medical',
+  'laptop-medical',
+  'medkit',
+  'notes-medical',
+  'pills'
+];
 
 const MobileCard = ({
   dosage,
@@ -14,9 +29,14 @@ const MobileCard = ({
   startDate,
   strength
 }) => {
+  const [{}, dispatch] = useContextValue();
   const navigation = useNavigation();
-  console.log('navigation: ', navigation);
   const handlePress = () => {
+    dispatch({
+      type: TYPES.SET_MEDICATION,
+      payload: name
+    });
+
     navigation.navigate('Medication', {
       dosage,
       frequency,
@@ -31,7 +51,11 @@ const MobileCard = ({
     <Card style={styles.card}>
       <TouchableOpacity style={styles.button} onPress={handlePress}>
         <CardItem style={styles.iconContainer}>
-          <Icon type="FontAwesome5" name="pills" style={styles.icon} />
+          <Icon
+            type="FontAwesome5"
+            name={icons[Math.floor(Math.random() * icons.length)]}
+            style={styles.icon}
+          />
         </CardItem>
         <CardItem style={styles.nameContainer}>
           <Body>

@@ -89,7 +89,7 @@ const Appointment = ({ route }) => {
             <Icon
               type="FontAwesome"
               name="calendar-check-o"
-              style={styles.barText}
+              style={styles.icon}
             />
           </Left>
           <Body>
@@ -103,7 +103,7 @@ const Appointment = ({ route }) => {
             <Icon
               type="FontAwesome5"
               name="notes-medical"
-              style={styles.barText}
+              style={styles.icon}
             />
           </Left>
           <Body>
@@ -115,7 +115,7 @@ const Appointment = ({ route }) => {
             <Icon
               type="FontAwesome"
               name="calendar-minus-o"
-              style={styles.barText}
+              style={styles.icon}
             />
           </Left>
           <Body>
@@ -124,7 +124,7 @@ const Appointment = ({ route }) => {
         </ListItem>
         <ListItem icon style={styles.bar}>
           <Left>
-            <Icon type="FontAwesome" name="phone" style={styles.barText} />
+            <Icon type="FontAwesome" name="phone" style={styles.icon} />
           </Left>
           <Body>
             <Text style={styles.barText}>{phoneNumber}</Text>
@@ -132,7 +132,7 @@ const Appointment = ({ route }) => {
         </ListItem>
         <ListItem icon style={styles.bar}>
           <Left>
-            <Icon type="FontAwesome" name="map-marker" style={styles.barText} />
+            <Icon type="FontAwesome" name="map-marker" style={styles.icon} />
           </Left>
           <Body>
             <Location location={location} customStyle={styles.barText} />
@@ -155,7 +155,7 @@ const Appointment = ({ route }) => {
             onPress={() => setShow(false)}
             type="FontAwesome"
             name="close"
-            style={styles.icon}
+            style={styles.closeIcon}
           />
           {show && (
             <View style={styles.centeredView}>

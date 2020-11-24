@@ -6,7 +6,7 @@ const { primary, white } = theme.palette;
 
 const styles = StyleSheet.create({
   card: {
-    height: 200,
+    height: 400,
     width: '45%'
   },
   iconContainer: {

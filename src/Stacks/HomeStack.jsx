@@ -11,7 +11,7 @@ const HomeStack = () => {
   const [{ user }] = useContextValue();
 
   return (
-    <Stack.Navigator initialRouteName="Doctor Appointments">
+    <Stack.Navigator initialRouteName="Medications">
       <Stack.Screen
         options={{
           title: `Welcome ${user.email}`

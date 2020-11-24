@@ -9,7 +9,7 @@ import styles from './DoctorAppointments.styles';
 import { useContextValue } from '../../Context/Context';
 
 const DoctorAppointments = () => {
-  const [{ logout, user }, dispatch] = useContextValue();
+  const [{ logout }, dispatch] = useContextValue();
   const [doctorAppointments, setDoctorAppointments] = useState([]);
 
   useEffect(() => {
@@ -29,10 +29,14 @@ const DoctorAppointments = () => {
     <CenterView style={styles.container} noPadding>
       <Button
         onPress={() => {
-          logout();
-          dispatch({
-            type: 'CLEAR_USER'
-          });
+          try {
+            logout();
+            dispatch({
+              type: 'CLEAR_USER'
+            });
+          } catch (err) {
+            console.error(err);
+          }
         }}
       >
         <Text>logout</Text>

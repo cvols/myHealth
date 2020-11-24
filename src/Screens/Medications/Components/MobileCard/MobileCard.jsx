@@ -14,7 +14,8 @@ const MobileCard = ({
   startDate,
   strength
 }) => {
-  const { navigation } = useNavigation();
+  const navigation = useNavigation();
+  console.log('navigation: ', navigation);
   const handlePress = () => {
     navigation.navigate('Medication', {
       dosage,

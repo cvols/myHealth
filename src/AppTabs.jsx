@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { Medications } from './Screens';
-import { HomeStack } from './Stacks';
+import { DoctorStack, MedicationStack } from './Stacks';
 import theme from '../theme';
 
 const Tabs = createBottomTabNavigator();
@@ -33,8 +32,8 @@ const AppTabs = () => {
         inactiveTintColor: darkGray
       }}
     >
-      <Tabs.Screen name="Doctor Appointments" component={HomeStack} />
-      <Tabs.Screen name="Medications" component={Medications} />
+      <Tabs.Screen name="Doctor Appointments" component={DoctorStack} />
+      <Tabs.Screen name="Medications" component={MedicationStack} />
     </Tabs.Navigator>
   );
 };

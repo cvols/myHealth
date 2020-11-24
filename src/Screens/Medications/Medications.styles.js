@@ -6,8 +6,6 @@ const { primary } = theme.palette;
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1,
-    borderColor: 'orange',
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',

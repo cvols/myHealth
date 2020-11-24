@@ -22,10 +22,10 @@ const Medications = () => {
       setMedications(data.docs.map(doc => doc.data()));
     })();
   }, []);
+
   return (
     <View style={styles.container}>
-      {medications?.map(medication => {
-        console.log('medication: ', medication);
+      {medications?.map((medication, index) => {
         const {
           dosage,
           frequency,
@@ -36,6 +36,7 @@ const Medications = () => {
         } = medication;
         return (
           <MobileCard
+            key={index}
             dosage={dosage}
             frequency={frequency}
             name={name}

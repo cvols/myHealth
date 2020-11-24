@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { Medications, Medication } from '../Screens';
 import { useContextValue } from '../Context/Context';
+import { Logout } from '../Components';
 
 const Stack = createStackNavigator();
 
@@ -11,7 +12,14 @@ const MedicationStack = () => {
   const [{ medication }] = useContextValue();
 
   return (
-    <Stack.Navigator initialRouteName="Medications">
+    <Stack.Navigator
+      screenOptions={{
+        headerRight: () => {
+          return <Logout />;
+        }
+      }}
+      initialRouteName="Medications"
+    >
       <Stack.Screen
         options={{
           title: 'Medications'

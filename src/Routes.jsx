@@ -10,7 +10,6 @@ import { CenterView } from './Components';
 import AppTabs from './AppTabs';
 import AuthStack from './Stacks/AuthStack';
 
-
 const Routes = () => {
   const [{ user }, dispatch] = useContextValue();
   const [loading, setLoading] = useState(true);

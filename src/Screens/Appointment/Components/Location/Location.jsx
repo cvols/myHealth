@@ -40,8 +40,8 @@ const Location = ({ location, customStyle }) => {
 Location.defaultProps = {};
 Location.propTypes = {
   location: PropTypes.shape({
-    longitude: PropTypes.string.isRequired,
-    latitude: PropTypes.string.isRequired
+    longitude: PropTypes.number.isRequired,
+    latitude: PropTypes.number.isRequired
   }).isRequired
 };
 

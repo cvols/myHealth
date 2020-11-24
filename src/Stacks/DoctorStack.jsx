@@ -3,12 +3,20 @@ import PropTypes from 'prop-types';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Appointment, DoctorAppointments } from '../Screens';
+import { Logout } from '../Components';
 
 const Stack = createStackNavigator();
 
 const DoctorStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Doctor Appointments">
+    <Stack.Navigator
+      initialRouteName="Doctor Appointments"
+      screenOptions={{
+        headerRight: () => {
+          return <Logout />;
+        }
+      }}
+    >
       <Stack.Screen
         options={{
           title: 'Most Recent Appointments'

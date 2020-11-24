@@ -206,4 +206,5 @@ Appointment.propTypes = {
   type: PropTypes.string,
   image: PropTypes.string
 };
+
 export default Appointment;

@@ -67,17 +67,27 @@ const Medication = ({ route }) => {
   );
 };
 
-Medication.defaultProps = {};
+Medication.defaultProps = {
+  dosage: null,
+  frequency: null,
+  name: null,
+  pricePerDosage: null,
+  startDate: {
+    nanoseconds: null,
+    seconds: null
+  },
+  strength: null
+};
 Medication.propTypes = {
-  dosage: PropTypes.number.isRequired,
-  frequency: PropTypes.oneOf(['daily', 'weekly', 'monthly']).isRequired,
-  name: PropTypes.string.isRequired,
-  pricePerDosage: PropTypes.number.isRequired,
+  dosage: PropTypes.number,
+  frequency: PropTypes.oneOf(['daily', 'weekly', 'monthly']),
+  name: PropTypes.string,
+  pricePerDosage: PropTypes.number,
   startDate: PropTypes.shape({
-    nanoseconds: PropTypes.number.isRequired,
-    seconds: PropTypes.number.isRequired
-  }).isRequired,
-  strength: PropTypes.oneOf(['mild', 'medium', 'high']).isRequired
+    nanoseconds: PropTypes.number,
+    seconds: PropTypes.number
+  }),
+  strength: PropTypes.oneOf(['mild', 'medium', 'high'])
 };
 
 export default Medication;

@@ -16,6 +16,7 @@ const Routes = () => {
 
   const authListener = () => {
     firebase.auth().onAuthStateChanged(user => {
+      console.log('user: ', user);
       if (user) {
         dispatch({
           type: TYPES.SET_USER,
@@ -44,7 +45,7 @@ const Routes = () => {
 
   return (
     <NavigationContainer>
-      {user.email ? <AppTabs /> : <AuthStack />}
+      {user.id ? <AppTabs /> : <AuthStack />}
     </NavigationContainer>
   );
 };

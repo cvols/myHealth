@@ -53,16 +53,17 @@ const Register = ({ navigation, route }) => {
           .auth()
           .signInWithEmailAndPassword(email, password)
           .then(res => {
-            const { user } = res;
+            const { email, uid } = res.user;
 
-            dispatch({
-              type: 'SET_USER',
+            return dispatch({
+              type: TYPES.SET_USER,
               payload: {
-                user
+                email,
+                id: uid
               }
             });
 
-            return AsyncStorage.setItem('userToken: ', user.refreshToken);
+            // return AsyncStorage.setItem('userToken: ', user.refreshToken);
           })
           .catch(err => {
             switch (err.code) {
@@ -80,12 +81,13 @@ const Register = ({ navigation, route }) => {
           .auth()
           .createUserWithEmailAndPassword(email, password)
           .then(res => {
-            const { user } = res;
+            const { email, uid } = res.user;
 
             dispatch({
               type: TYPES.SET_USER,
               payload: {
-                user
+                email,
+                id: uid
               }
             });
           })

@@ -5,7 +5,8 @@ export const initialState = {
   logout: () => firebase.auth().signOut(),
   user: {
     email: null,
-    nextVisit: null
+    nextVisit: null,
+    id: null
   },
   medication: null
 };
@@ -24,7 +25,8 @@ export default (state, action) => {
         ...state,
         user: {
           ...state.user,
-          email: action.payload
+          email: action.payload.email,
+          id: action.payload.id
         }
       };
     case CLEAR_USER:

@@ -12,7 +12,6 @@ import {
 } from 'native-base';
 import * as Animatable from 'react-native-animatable';
 import firebase from 'firebase';
-import { AsyncStorage } from 'react-native';
 
 import styles from './Register.styles';
 import { useContextValue } from '../../Context/Context';
@@ -62,8 +61,6 @@ const Register = ({ navigation, route }) => {
                 id: uid
               }
             });
-
-            // return AsyncStorage.setItem('userToken: ', user.refreshToken);
           })
           .catch(err => {
             switch (err.code) {

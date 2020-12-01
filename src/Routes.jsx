@@ -16,11 +16,13 @@ const Routes = () => {
 
   const authListener = () => {
     firebase.auth().onAuthStateChanged(user => {
-      console.log('user: ', user);
       if (user) {
         dispatch({
           type: TYPES.SET_USER,
-          payload: user.email
+          payload: {
+            email: user.email,
+            id: user.uid
+          }
         });
       } else {
         dispatch({

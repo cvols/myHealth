@@ -3,6 +3,7 @@
 > npm install -g react-native
 
 ## Clone the repo
+> git clone
 
 ## Install packages
 > npm install

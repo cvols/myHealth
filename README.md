@@ -11,5 +11,5 @@
 ## Start the development server on `http://localhost:19002/`
 > npm start
 
-## Run in IoS Simulator
-> click on Run on IoS Simulator
+## Run in iOS Simulator
+> click on Run on iOS Simulator
